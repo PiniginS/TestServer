@@ -45,7 +45,8 @@ public class CategoryController {
 
     private JSONObject genCategory() {
         try {
-            String content = new String(Files.readAllBytes(Paths.get("/home/kit/IdeaProjects/TestServer/src/main/resources/categorys.json")));
+            ClassLoader cl = this.getClass().getClassLoader();
+            String content = new String(Files.readAllBytes(Paths.get(cl.getResource("categorys.json").getFile())));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("First controller json error");
@@ -57,7 +58,8 @@ public class CategoryController {
 
     private JSONObject genItems() {
         try {
-            String content = new String(Files.readAllBytes(Paths.get("/home/kit/IdeaProjects/TestServer/src/main/resources/items.json")));
+            ClassLoader cl = this.getClass().getClassLoader();
+            String content = new String(Files.readAllBytes(Paths.get(cl.getResource("items.json").getFile())));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("First controller json error");

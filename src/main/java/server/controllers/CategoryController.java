@@ -47,11 +47,12 @@ public class CategoryController {
         try {
             ClassLoader cl = this.getClass().getClassLoader();
             String content = new String(Files.readAllBytes(Paths.get(cl.getResource("categorys.json").getFile())));
+            System.out.println(Paths.get(cl.getResource("categorys.json").getFile()));
             return new JSONObject(content);
         } catch (JSONException e) {
-            System.out.println("First controller json error");
+            System.out.println("genCategory json error");
         } catch (IOException e) {
-            System.out.println("First controller file not found");
+            System.out.println("genCategory file not found");
         }
         return new JSONObject();
     }
@@ -60,11 +61,12 @@ public class CategoryController {
         try {
             ClassLoader cl = this.getClass().getClassLoader();
             String content = new String(Files.readAllBytes(Paths.get(cl.getResource("items.json").getFile())));
+            System.out.println(Paths.get(cl.getResource("items.json").getFile()));
             return new JSONObject(content);
         } catch (JSONException e) {
-            System.out.println("First controller json error");
+            System.out.println("genItems json error");
         } catch (IOException e) {
-            System.out.println("First controller file not found");
+            System.out.println("genItems file not found");
         }
         return new JSONObject();
     }

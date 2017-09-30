@@ -76,5 +76,6 @@ freeline.py
 freeline/
 freeline_project_description.json
 
-#Maven
+#My
 target/
+.idea/

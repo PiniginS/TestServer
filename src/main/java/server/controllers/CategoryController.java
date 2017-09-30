@@ -45,9 +45,7 @@ public class CategoryController {
 
     private JSONObject genCategory() {
         try {
-            ClassLoader cl = this.getClass().getClassLoader();
-            System.out.println(Paths.get(cl.getResource("categorys.json").getFile()));
-            String content = new String(Files.readAllBytes(Paths.get(("src/main/resources/categorys.json"))));
+            String content = new String(Files.readAllBytes(Paths.get(("classes/categorys.json"))));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("genCategory json error");
@@ -59,9 +57,6 @@ public class CategoryController {
 
     private JSONObject genItems() {
         try {
-            ClassLoader cl = this.getClass().getClassLoader();
-            System.out.println(Paths.get(cl.getResource("items.json").getFile()));
-            System.out.println(Paths.get("classes/items.json"));
             String content = new String(Files.readAllBytes(Paths.get(("classes/items.json"))));
             return new JSONObject(content);
         } catch (JSONException e) {

@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class CategoryController {
+public class TestData {
 
     @RequestMapping(value = "/testData", method = RequestMethod.GET)
     @ResponseBody

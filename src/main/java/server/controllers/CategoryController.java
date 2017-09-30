@@ -62,7 +62,7 @@ public class CategoryController {
             ClassLoader cl = this.getClass().getClassLoader();
             System.out.println(Paths.get(cl.getResource("items.json").getFile()));
             System.out.println(Paths.get("classes/items.json"));
-            String content = new String(Files.readAllBytes(Paths.get(("src/main/resources/items.json"))));
+            String content = new String(Files.readAllBytes(Paths.get(("classes/items.json"))));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("genItems json error");

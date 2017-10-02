@@ -37,7 +37,7 @@ public class PushController {
         JSONObject body = new JSONObject();
 
         if (id.length()>0) body.put("to",id);
-        else body.put("/topics/allDevices",id);
+        else body.put("to","/topics/allDevices");
 
         JSONObject data = new JSONObject();
         data.put("title",title);

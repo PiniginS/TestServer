@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Controller
-public class CategoryController {
+public class TestData {
 
     @RequestMapping(value = "/testData", method = RequestMethod.GET)
     @ResponseBody
@@ -45,9 +45,7 @@ public class CategoryController {
 
     private JSONObject genCategory() {
         try {
-            ClassLoader cl = this.getClass().getClassLoader();
-            System.out.println(Paths.get(cl.getResource("categorys.json").getFile()));
-            String content = new String(Files.readAllBytes(Paths.get(cl.getResource("categorys.json").getFile())));
+            String content = new String(Files.readAllBytes(Paths.get(("classes/categorys.json"))));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("genCategory json error");
@@ -59,9 +57,7 @@ public class CategoryController {
 
     private JSONObject genItems() {
         try {
-            ClassLoader cl = this.getClass().getClassLoader();
-            System.out.println(Paths.get(cl.getResource("items.json").getFile()));
-            String content = new String(Files.readAllBytes(Paths.get(cl.getResource("items.json").getFile())));
+            String content = new String(Files.readAllBytes(Paths.get(("classes/items.json"))));
             return new JSONObject(content);
         } catch (JSONException e) {
             System.out.println("genItems json error");

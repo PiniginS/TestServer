@@ -22,7 +22,7 @@ public class PushController {
     @ResponseBody
     public void push(@RequestParam(value = "title", required = false, defaultValue = "") String title,
                      @RequestParam(value = "message", required = false, defaultValue = "") String message,
-                     @RequestParam(value = "message", required = false, defaultValue = "") String id) throws IOException {
+                     @RequestParam(value = "id", required = false, defaultValue = "") String id) throws IOException {
 
         String url = "https://fcm.googleapis.com/fcm/send";
         URL object = new URL(url);
@@ -35,7 +35,9 @@ public class PushController {
         con.setRequestMethod("POST");
 
         JSONObject body = new JSONObject();
+
         if (id.length()>0) body.put("to",id);
+        else body.put("to","/topics/allDevices");
 
         JSONObject data = new JSONObject();
         data.put("title",title);
